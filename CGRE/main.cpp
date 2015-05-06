@@ -7,9 +7,21 @@
 //
 
 #include <iostream>
+#include "utilities.h"
+#include "Sequence.h"
+#include <memory>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    // Handle CL arguments
+    if (argc != 1) {
+        utilities::error("No command-line arguments are permitted at this time.");
+    }
+    
+    // Generate random data
+    shared_ptr<Sequence> testSequence(new Sequence(1000));
+    
+    testSequence->printBases();
 }
