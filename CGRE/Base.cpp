@@ -12,21 +12,6 @@
 
 using namespace std;
 
-Base::Base()
-{
-    this->iD = static_cast<ID>(utilities::randInt(3));
-}
-
-Base::Base(Base::ID iD)
-{
-    this->iD = iD;
-}
-
-Base::ID Base::getID() const
-{
-    return iD;
-}
-
 Base::ID Base::fromChar(char baseCharacter)
 {
     switch (baseCharacter)

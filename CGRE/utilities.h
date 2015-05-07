@@ -27,7 +27,7 @@
 //
 namespace utilities
 {
-    // RNG
+    // Random Number Generation
     
     //
     // randInt()

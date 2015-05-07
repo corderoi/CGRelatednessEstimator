@@ -7,7 +7,6 @@
 //
 
 #include "utilities.h"
-#include <algorithm> // swap()
 #include <random>
 
 using namespace std;

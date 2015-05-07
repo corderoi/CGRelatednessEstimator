@@ -9,7 +9,7 @@
 #include <iostream>
 #include "utilities.h"
 #include "Sequence.h"
-#include <memory>
+#include "stats.h"
 
 using namespace std;
 
@@ -20,8 +20,9 @@ int main(int argc, char* argv[])
         utilities::error("No command-line arguments are permitted at this time.");
     }
     
-    // Generate random data
-    shared_ptr<Sequence> testSequence(new Sequence(1000));
+    // Test random data
+    Sequence testSequence(1000);
+    testSequence.printBases();
     
-    testSequence->printBases();
+    // Test stats library
 }

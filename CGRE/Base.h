@@ -27,18 +27,12 @@ public:
         N = 0b100 // will not be used, in general
     };
     
-    Base();
-    
-    Base(ID iD);
-    
-    ID getID() const;
-    
     static ID fromChar(char baseCharacter);
     
     static char toChar(ID baseID);
     
 private:
-    ID iD;
+    Base() = delete;
 };
 
 #endif /* defined(__CGRE__Base__) */
