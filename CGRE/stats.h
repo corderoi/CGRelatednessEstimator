@@ -11,6 +11,20 @@
 
 namespace stats
 {
+    // General
+    
+    template <typename T>
+    T sum(T numbers[], int size)
+    {
+        T total = T();
+        for (int i = 0; i < size; i++) {
+            total += numbers[i];
+        }
+        return total;
+    }
+    
+    double mean(double numbers[], int size);
+    
     // Uniform Dist.
     
     // Reused from 'utilities'

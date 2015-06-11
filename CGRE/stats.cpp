@@ -15,6 +15,11 @@ using namespace std;
 
 static random_device generator;
 
+double stats::mean(double numbers[], int size)
+{
+    return stats::sum(numbers, size);
+}
+
 int stats::randInt(int range)
 {
     return utilities::randInt(range);
