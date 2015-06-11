@@ -89,6 +89,17 @@ public:
             utilities::println("Relatedness: " + utilities::toString(relatedness4) + " (" + utilities::toString(startRESTime.secondsSince()) + " seconds)");
             utilities::println("Estimation complete.");
             
+            // Parent-child
+            Time startREPCBTime;
+            utilities::println("Estimating relatedness of parent and child (baseline).");
+            const double rpc = RelatednessEstimator::estimateBasline(*h1, *h3);
+            utilities::println("Relatedness: " + utilities::toString(rpc) + " (" + utilities::toString(startREPCBTime.secondsSince()) + " seconds)");
+            utilities::println("Estimating relatedness of parent and child (advanced).");
+            Time startREPCTime;
+            const double rpca = RelatednessEstimator::estimate(*h1, *h3, set);
+            utilities::println("Relatedness: " + utilities::toString(rpca) + " (" + utilities::toString(startREPCTime.secondsSince()) + " seconds)");
+            utilities::println("Estimation complete.");
+            
             // Same individual
             utilities::println("Estimating same individual relatedness (baseline): ");
             Time t31;
@@ -154,6 +165,17 @@ public:
             Time startRESTime;
             const double relatedness4 = RelatednessEstimator::estimate(*h3, *h4, set);
             utilities::println("Relatedness: " + utilities::toString(relatedness4) + " (" + utilities::toString(startRESTime.secondsSince()) + " seconds)");
+            utilities::println("Estimation complete.");
+            
+            // Parent-child
+            Time startREPCBTime;
+            utilities::println("Estimating relatedness of parent and child (baseline).");
+            const double rpc = RelatednessEstimator::estimateBasline(*h1, *h3);
+            utilities::println("Relatedness: " + utilities::toString(rpc) + " (" + utilities::toString(startREPCBTime.secondsSince()) + " seconds)");
+            utilities::println("Estimating relatedness of parent and child (advanced).");
+            Time startREPCTime;
+            const double rpca = RelatednessEstimator::estimate(*h1, *h3, set);
+            utilities::println("Relatedness: " + utilities::toString(rpca) + " (" + utilities::toString(startREPCTime.secondsSince()) + " seconds)");
             utilities::println("Estimation complete.");
 
             // Same individual
