@@ -31,6 +31,11 @@ public:
     //
     HaplotypeSet(string filename, int snpCap = -1, int individCap = -1);
     
+    //
+    // Generates a synthetic set of individuals and their SNPs.
+    //
+    HaplotypeSet(int numSNPs = -1, int numIndividuals = -1);
+    
     void print() const;
     
     ~HaplotypeSet();

@@ -12,6 +12,7 @@
 #include "exceptions.h"
 #include "HaplotypePhase.h"
 #include "utilities.h"
+#include "stats.h"
 
 using namespace std;
 
@@ -132,6 +133,41 @@ end_read___:;
     
     for (int i = 0; i < rsIDs.size(); i++) {
         minorAlleles.push_back((getAlleleFreq(i) < 0.5));
+    }
+}
+
+HaplotypeSet::HaplotypeSet(int numSNPs, int numIndividuals)
+{
+    setPosition = "synthetic";
+    
+    if (numSNPs <= 0 || numIndividuals <= 0) {
+        throw LogicException("numSNPs and numIndividuals must be positive.");
+    }
+    
+    for (int i = 0; i < numIndividuals; i++) {
+        individuals.push_back(new Individual("SI" + utilities::toString(i + 1), numSNPs));
+    }
+    
+    for (int i = 0; i < numSNPs; i++) {
+        const double alleleFrequency = stats::rand(0.0, 1.0);
+        
+        rsIDs.push_back("synth_rs" + utilities::toString(i + 1));
+        positionNums.push_back(utilities::toString(i + 1));
+        minorAlleles.push_back((alleleFrequency < 0.5));
+        
+        for (const auto individual : individuals) {
+            individual->haplotypePhase->setH1At(i, (stats::rand(1.0) < alleleFrequency) ? 0b1 : 0b0);
+            individual->haplotypePhase->setH2At(i, (stats::rand(1.0) < alleleFrequency) ? 0b1 : 0b0);
+        }
+    }
+    
+    if (rsIDs.size() != positionNums.size()) {
+        throw LogicException("Error: size of IDs and position numbers do not match.");
+    }
+    for (int i = 0; i < individuals.size(); i++) {
+        if (individuals.at(i)->haplotypePhase->getLength() != rsIDs.size()) {
+            throw LogicException("Error: size of IDs and individual Haplotype lengths do not match.");
+        }
     }
 }
 
