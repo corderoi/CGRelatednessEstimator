@@ -12,6 +12,7 @@
 //
 // Bit manipulation
 //
+
 #define setBit(integer, pos, value)\
 integer &= ~(0b1 << pos);\
 integer |= value << pos

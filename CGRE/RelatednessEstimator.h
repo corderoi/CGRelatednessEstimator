@@ -22,7 +22,7 @@ public:
     // Estimates the relatedness between individuals h1 and h2 using the basic method.
     // Returns a coefficient describing the level of relatedness between the two.
     //
-    static double estimateBasline(const HaplotypePhase& h1, const HaplotypePhase& h2);
+    static double estimateBaseline(const HaplotypePhase& h1, const HaplotypePhase& h2);
     
     //
     // Estimates the relatedness between individuals h1 and h2 using an advanced method.

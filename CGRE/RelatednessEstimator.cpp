@@ -13,7 +13,7 @@
 #include "RelatednessTable.h"
 #include "UnrelatednessTable.h"
 
-double RelatednessEstimator::estimateBasline(const HaplotypePhase& h1, const HaplotypePhase& h2)
+double RelatednessEstimator::estimateBaseline(const HaplotypePhase& h1, const HaplotypePhase& h2)
 {
     int numMatches = 0;
     const int length = h1.getLength();
