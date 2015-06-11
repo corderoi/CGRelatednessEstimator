@@ -38,12 +38,10 @@ public:
         // Test RelatednessEstimator on synthetic data
         const vector<tuple<int, int>> parameters = {
             // Vary number of SNPs
-            make_tuple(5, 10),
             make_tuple(500, 10),
             make_tuple(5000, 10),
             make_tuple(50000, 10),
             // Vary number of individuals
-            make_tuple(10000, 2),
             make_tuple(10000, 10),
             make_tuple(10000, 100)
         };
